@@ -39,6 +39,63 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <style>
+      .slideshow-container {
+        position: relative;
+        width: 100%;
+      }
+      
+      .slideshow-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      .slide {
+        display: none;
+        width: 100%;
+      }
+      
+      .slide.active {
+        display: block;
+      }
+      
+      .slide img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      .slideshow-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 18px;
+        z-index: 10;
+        transition: background-color 0.3s ease;
+      }
+      
+      .slideshow-nav:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      
+      .slideshow-nav.prev {
+        left: 10px;
+      }
+      
+      .slideshow-nav.next {
+        right: 10px;
+      }
+      
+      .slideshow-container:hover .slideshow-nav {
+        display: block;
+      }
+    </style>
     <script src="./javascript/scrollreveal.min.js"></script>
     <script
       defer
@@ -317,21 +374,35 @@
           
           <article class="row">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">CS Lightwork - YouTube Channel</h3>
+              <h3 class="project-wrapper__text-title">CS Lightwork: YouTube, TikTok, Instagram</h3>
               <p class="project-wrapper__text-info">
-                YouTube channel dedicated to creating easy to understand 
-                computer science tutorials. Ranging from beginner to more 
+                Multi-platform content creation channel dedicated to creating easy to understand 
+                computer science tutorials across YouTube, TikTok, and Instagram. Ranging from beginner to more 
                 advanced concepts, and coding problems. Offering consistent 
                 viewer help, and source code for all tutorials through GitHub.
                 Teaching is the best way to learn.
               </p>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="https://www.youtube.com/channel/UC4Oalqat4VhD-zmGAA5uvfA/"
+                  href="https://www.youtube.com/@CS-Lightwork"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
                   >YouTube Channel</a
+                >
+                <a
+                  href="https://www.tiktok.com/@cs.lightwork"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >TikTok</a
+                >
+                <a
+                  href="https://instagram.com/cs.lightwork"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >Instagram</a
                 >
                 <a href="https://github.com/taseenw/CS-Lightwork" target="_blank" class="cta-btn text-color-main"
                   >Source Codes</a
@@ -340,15 +411,42 @@
             </div>
 
             <div class="project-wrapper__image">
-              <a href="https://www.youtube.com/channel/UC4Oalqat4VhD-zmGAA5uvfA/" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/cslightwork.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                  />
+              <div class="thumbnail rounded slideshow-container">
+                <div class="slideshow-wrapper" id="csLightworkSlideshow">
+                  <button class="slideshow-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+                  <button class="slideshow-nav next" onclick="changeSlide(1)">&#10095;</button>
+                  
+                  <div class="slide active">
+                    <a href="https://www.youtube.com/@CS-Lightwork" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="./assets/cslightwork.png"
+                        class="img-fluid"
+                        alt="CS Lightwork YouTube"
+                      />
+                    </a>
+                  </div>
+                  
+                  <div class="slide">
+                    <a href="https://www.tiktok.com/@cs.lightwork" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="./assets/cslightwork-tt.png"
+                        class="img-fluid"
+                        alt="CS Lightwork TikTok"
+                      />
+                    </a>
+                  </div>
+                  
+                  <div class="slide">
+                    <a href="https://instagram.com/cs.lightwork" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="./assets/cslightwork-ig.png"
+                        class="img-fluid"
+                        alt="CS Lightwork Instagram"
+                      />
+                    </a>
+                  </div>
                 </div>
-              </a>
+              </div>
             </div>
           </article>
 
@@ -513,5 +611,36 @@
     </script>
     <script src="./javascript/vanilla-tilt.min.js"></script>
     <script type="text/javascript" src="./javascript/valtilt.js"></script>
+    <script>
+      // CS Lightwork Slideshow
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('#csLightworkSlideshow .slide');
+      
+      function showSlide(index) {
+        if (index >= slides.length) {
+          currentSlide = 0;
+        } else if (index < 0) {
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide = index;
+        }
+        
+        slides.forEach((slide, i) => {
+          slide.classList.remove('active');
+          if (i === currentSlide) {
+            slide.classList.add('active');
+          }
+        });
+      }
+      
+      function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+      }
+      
+      // Initialize - show first slide
+      if (slides.length > 0) {
+        showSlide(0);
+      }
+    </script>
   </body>
 </html>
