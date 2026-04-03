@@ -7,10 +7,11 @@
   line-height: 1;
   z-index: 1;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: $radius-sm;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
   &:hover {
-    box-shadow: 1.5px 1.5px 3px rgba(174, 174, 192, 0.4), -1px -1px 3px #ffffff;
+    box-shadow: 0 0 26px rgba(168, 85, 247, 0.55),
+      1.5px 1.5px 4px rgba(0, 0, 0, 0.45);
     @include respond(phone) {
       box-shadow: none;
     }
@@ -38,8 +39,10 @@
   }
 }
 
-/* Hero Style */
+/* Hero Style — square corners: border-image ignores border-radius, so a radius
+   on the box made the hover ::after look rounded while the border stayed square */
 .cta-btn--hero {
+  border-radius: 0;
   @include supportColorForIE11();
   border: 2px solid transparent;
   border-image: linear-gradient(
@@ -112,12 +115,13 @@
 
 /* Project Style*/
 .cta-btn--projects {
-  box-shadow: inset 1px 1px 2px 2px rgba(174, 174, 192, 0.15),
-    inset -2px -2px 2px rgba(255, 255, 255, 0.7);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.35),
+    inset -1px -1px 2px rgba(192, 132, 252, 0.22);
   border: 2px solid transparent;
   @include respond(phone) {
     border: none;
-    box-shadow: 1.5px 1.5px 3px rgba(174, 174, 192, 0.4), -1px -1px 3px #ffffff;
+    box-shadow: 0 0 22px rgba(139, 92, 246, 0.48),
+      1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
   }
   &::after {
     height: 250%;
@@ -128,7 +132,8 @@
   }
 
   &:hover {
-    box-shadow: 1.5px 1.5px 3px rgba(174, 174, 192, 0.4), -1px -1px 3px #ffffff;
+    box-shadow: 0 0 28px rgba(168, 85, 247, 0.45),
+      1.5px 1.5px 4px rgba(0, 0, 0, 0.35);
 
     &::after {
       transform: translate(-12%, -30%) rotate(45deg);

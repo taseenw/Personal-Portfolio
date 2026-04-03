@@ -24,7 +24,8 @@ section {
     & p + p {
       margin-top: 1rem;
     }
-    & span {
+    // Do not target skill chips — was adding ~2rem above every .about-skills__item
+    & span:not(.about-skills__item) {
       margin-top: 2rem;
     }
   }

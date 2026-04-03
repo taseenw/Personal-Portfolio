@@ -11,7 +11,7 @@
 
     <link rel="icon" type="image/png" href="./assets/logo.png" />
 
-    <meta name="theme-color" content="#36d1dc" />
+    <meta name="theme-color" content="#07070c" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://taseenw.me/" />
@@ -70,8 +70,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
+        background-color: rgba(26, 20, 40, 0.75);
+        color: #e8e0f5;
         border: none;
         padding: 10px 15px;
         cursor: pointer;
@@ -81,7 +81,7 @@
       }
       
       .slideshow-nav:hover {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(47, 38, 80, 0.9);
       }
       
       .slideshow-nav.prev {
@@ -130,8 +130,8 @@
         </p>
       </section>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div
-      ></a>
+        <div class="scroll-down"></div>
+      </a>
     </div>
 
     <section id="about">
@@ -147,17 +147,48 @@
           </div>
           <div class="about-wrapper__info">
             <p class="about-wrapper__info-text">
-              Bilingual Computer Science Student
-              with professional development experience. A perpetual 
-              learner and programmer, avidly seeking new 
-              opportunities to grow and develop my skillset. Always 
-              looking to expand my network and build new relationships.
+              Bilingual CS Student graduate with 4 + years of professional development experience. 
+              <br><br>Perpetual learner and programmer, avidly seeking new 
+              opportunities to grow and develop my skillset. 
             </p>
 
-            <p>
-              <b>Languages: </b> Python, Java, JavaScript, C, C++, C#, TypeScript, PHP, SQL, HTML, SCSS/CSS<br>
-              <b>Frameworks & Tools: </b>Git, Angular, React, Node.js, MySQL, PostgreSQL, MongoDB, Docker, Selenium, Splunk, Cypress, Bootstrap
-            </p>
+            <div class="about-skills">
+              <div class="about-skills__group">
+                <h3 class="about-skills__label">Languages</h3>
+                <ul class="about-skills__list">
+                  <li><span class="about-skills__item">Python</span></li>
+                  <li><span class="about-skills__item">Java</span></li>
+                  <li><span class="about-skills__item">JavaScript</span></li>
+                  <li><span class="about-skills__item">C</span></li>
+                  <li><span class="about-skills__item">C++</span></li>
+                  <li><span class="about-skills__item">C#</span></li>
+                  <li><span class="about-skills__item">TypeScript</span></li>
+                  <li><span class="about-skills__item">PHP</span></li>
+                  <li><span class="about-skills__item">SQL</span></li>
+                  <li><span class="about-skills__item">HTML</span></li>
+                  <li><span class="about-skills__item">SCSS / CSS</span></li>
+                </ul>
+              </div>
+              <br>
+              <div class="about-skills__group">
+                <h3 class="about-skills__label">Frameworks &amp; tools</h3>
+                <ul class="about-skills__list">
+                  <li><span class="about-skills__item">Git</span></li>
+                  <li><span class="about-skills__item">Angular</span></li>
+                  <li><span class="about-skills__item">React</span></li>
+                  <li><span class="about-skills__item">Node.js</span></li>
+                  <li><span class="about-skills__item">MySQL</span></li>
+                  <li><span class="about-skills__item">PostgreSQL</span></li>
+                  <li><span class="about-skills__item">MongoDB</span></li>
+                  <li><span class="about-skills__item">Docker</span></li>
+                  <li><span class="about-skills__item">Selenium</span></li>
+                  <li><span class="about-skills__item">Splunk</span></li>
+                  <li><span class="about-skills__item">Cypress</span></li>
+                  <li><span class="about-skills__item">Bootstrap</span></li>
+                </ul>
+              </div>
+            </div>
+            <br><br>
             <span class="about-wrapper__cta">
               <a href="assets\Taseen_W_Resume.pdf" class="cta-btn cta-btn--resume">My Resume</a>
             </span>
@@ -199,8 +230,10 @@
         <div class="project-wrapper">
           <h2 class="section-title dark-blue-text">I have been...</h2><br>
           <article class="row">
-            <div class="project-wrapper__text" style="text-align:right; border-right: 1px solid rgb(171, 171, 171); padding-right: 40px;"> 
-              <img src="cuPNG.png" width="300">
+            <div class="project-wrapper__text experience-col experience-col--left">
+              <div class="logo-tile">
+                <img src="cuPNG.png" alt="Carleton University" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Computer Science </h3>
               <p class="project-wrapper__text-info">
@@ -213,15 +246,19 @@
               
             </div>
 
-            <div class="project-wrapper__text" style="text-align:left;"> 
-              <img src="Kinaxis-Logo.png" width="300">
+            <div class="project-wrapper__text experience-col experience-col--right">
+              <div class="logo-tile">
+                <img src="Kinaxis-Logo.png" alt="Kinaxis" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Software Developer Intern <div style="font-size: small; font-weight: 100;"> September 2025 - December 2025</div></h3>
               <p class="project-wrapper__text-info">
                 Developing front-end solutions for Maestro, flagship AI-powered supply chain orchestration platform leveraged by major <b>Fortune 500 manufacturers</b>.
               </p>
               <br>
-              <img src="Autodesk-Logo.png" width="300">
+              <div class="logo-tile">
+                <img src="Autodesk-Logo.png" alt="Autodesk" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Software Engineer Intern <div style="font-size: small; font-weight: 100;"> May 2025 - August 2025</div></h3>
               <p class="project-wrapper__text-info">
@@ -229,7 +266,9 @@
               </p>
               <br>
 
-              <img src="df.png" width="300">
+              <div class="logo-tile">
+                <img src="df.png" alt="Dayforce" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Software Developer Intern <div style="font-size: small; font-weight: 100;"> May 2024 - December 2024</div></h3>
               <p class="project-wrapper__text-info">
@@ -237,7 +276,9 @@
               </p>
               <br>
 
-              <img src="ccPNG.png" width="300">
+              <div class="logo-tile">
+                <img src="ccPNG.png" alt="Clinical trials platform" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Junior Developer <div style="font-size: small; font-weight: 100;"> June 2023 - August 2024</div></h3>
               <p class="project-wrapper__text-info">
@@ -247,14 +288,18 @@
               </p>
               <br>
 
-              <img src="trendPNG.png" width="200">
+              <div class="logo-tile logo-tile--lg">
+                <img src="trendPNG.png" alt="Trend Micro" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Software Developer Intern <div style="font-size: small; font-weight: 100;"> September 2023 - December 2023</div></h3>
               <p class="project-wrapper__text-info">
                   Worked in software development on the Deep Security Manager product team, handling client support cases on an implementation-level. Assisted in the enhancement and maintenance of cloud connectors to ensure seamless user security integration with leading cloud providers, optimizing performance, primarily focusing on the implementation of AWS, GCP and Azure. Created optimized Splunk dashboards, queries, filters, and visualizations to monitor cloud connection metrics for live customer data, efficiently handling <b>10,000+ synchronizations</b>, reducing processing time from minutes to <b>11 seconds</b>. Contributed to the implementation of new security features, addressing vulnerabilities, while meticulously tracking the created IAM roles, Lambdas, EC2 instances, and other cloud resources for comprehensive testing documentation.</p>
               <br>
-              
-              <img src="ibPNG.png" width="300">
+
+              <div class="logo-tile">
+                <img src="ibPNG.png" alt="Ideabytes" />
+              </div>
               <br><br>
               <h3 class="project-wrapper__text-title">Software Engineer Intern <div style="font-size: small; font-weight: 100;"> Feb 2022 - Jan 2023</div></h3>
               <p class="project-wrapper__text-info">
@@ -467,11 +512,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Source Code</a
-                >
-<!--                 <a href="https://www.youtube.com/watch?v=As-QS6NOxcQ" target="_blank" class="cta-btn text-color-main"
-                  >Demo Video</a -->
-                >
+                  >Source Code</a>
               </div>
             </div>
 

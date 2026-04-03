@@ -1,13 +1,27 @@
-// COLORS
-$primary-color: #36d1dc;
-$secondary-color: #5b86e5;
+// Electric violet — saturated (#a855f7 / #c084fc range), not pale lavender
+$primary-color: #a855f7;
+$secondary-color: #c084fc;
 $font-family: "Montserrat", sans-serif;
 
-$light-white: #e5e5e5;
-$white-color: #ffffff;
-$dark-grey: #333333;
+// Page surfaces
+$bg-page: #07070c;
+$light-white: #101018;
+$white-color: #f5f0ff;
+$dark-grey: #030308;
 
-$dark-blue-text: #272341; // For headings
+// Body / hero / projects — light violet-white (readable, not gray)
+$dark-blue-text: #e8e4ff;
+
+// Logo tiles (dark logos on PNG need a light surface)
+$logo-tile-bg: rgba(252, 250, 255, 0.97);
+$logo-tile-border: rgba(168, 85, 247, 0.45);
+$logo-tile-shadow: 0 4px 24px rgba(0, 0, 0, 0.35),
+  inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+// Shape
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-pill: 999px;
 
 // FONT SIZE
 $default-font-size: 1.6rem;

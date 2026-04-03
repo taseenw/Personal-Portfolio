@@ -1,0 +1,76 @@
+// Skills — electric violet chips
+.about-skills {
+  margin-top: 0;
+  text-align: left;
+
+  @include respond(tab-port-sm) {
+    text-align: center;
+  }
+
+  &__group {
+    margin-bottom: 2.3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(196, 181, 255, 0.95);
+    margin-bottom: 1rem;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 0.9rem;
+    column-gap: 1.1rem;
+    justify-content: flex-start;
+
+    @include respond(tab-port-sm) {
+      justify-content: center;
+    }
+
+    // Kill phantom space above chips (inline-block baseline / line-box on li)
+    li {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: rgba(250, 245, 255, 0.96);
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.45);
+    border-radius: $radius-pill;
+    // Slight depth + dark purple outer halo
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.42),
+      0 0 14px rgba(59, 7, 100, 0.55),
+      0 0 1px rgba(76, 29, 149, 0.8);
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      background: rgba(168, 85, 247, 0.18);
+      border-color: rgba(192, 132, 252, 0.65);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(88, 28, 135, 0.5),
+        0 0 20px rgba(168, 85, 247, 0.25);
+    }
+  }
+}
