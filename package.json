@@ -1,0 +1,11 @@
+{
+  "name": "personal-portfolio",
+  "private": true,
+  "description": "Static portfolio site",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "echo 'Static site — no compile step'"
+  }
+}
