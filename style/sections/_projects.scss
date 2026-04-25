@@ -18,6 +18,72 @@
   }
 }
 
+// Experience column: compact bullets; clear gap between roles (logo / next block)
+.experience-col--right .experience-role {
+  margin-bottom: 2.6rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .logo-tile {
+    margin-bottom: 0.5rem;
+  }
+
+  .project-wrapper__text-title {
+    margin-bottom: 0.55rem;
+  }
+}
+
+.experience-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.32rem;
+    font-size: $default-font-size;
+    line-height: 1.32;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: $primary-color;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.courses-list {
+  list-style: none;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  text-align: left;
+
+  li {
+    margin-bottom: 0.18rem;
+    line-height: 1.38;
+    font-size: 1.75rem;
+  }
+}
+
+.education-block .project-wrapper__text-info.courses-heading {
+  margin-bottom: 0.35rem;
+}
+
+.experience-col--left .education-block {
+  display: inline-block;
+  text-align: left;
+  max-width: 100%;
+}
+
 #projects {
   background-color: $light-white;
   color: $dark-blue-text;
