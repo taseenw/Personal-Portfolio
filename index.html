@@ -5,108 +5,237 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Taseen Waseq | Developer</title>
+    <title>Taseen Waseq | Software Engineer</title>
 
-    <meta name="description" content="Taseen Waseq | Developer" />
+    <meta name="description" content="Taseen Waseq — Software engineer with a growing focus on AI tooling and applied ML." />
 
     <link rel="icon" type="image/png" href="./assets/logo.png" />
 
-    <meta name="theme-color" content="#07070c" />
+    <meta name="theme-color" content="#0a0d12" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://taseenw.me/" />
-    <meta property="og:title" content="Taseen Waseq | Developer" />
-    <meta property="og:description" content="Taseen Waseq Portfolio" />
-    <meta
-      property="og:image"
-      content="https://taseenw.me/assets/thumbnail.png"
-    />
+    <meta property="og:title" content="Taseen Waseq | Software Engineer" />
+    <meta property="og:description" content="Taseen Waseq — Software engineer with a growing focus on AI tooling and applied ML." />
+    <meta property="og:image" content="https://taseenw.me/assets/thumbnail.png" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://taseenw.me" />
-    <meta property="twitter:title" content="Taseen Waseq | Developer" />
-    <meta
-      property="twitter:description"
-      content="Taseen Waseq Portfolio"
-    />
-    <meta
-      property="twitter:image"
-      content="https://taseenw.me/assets/thumbnail.png"
-    />
+    <meta property="twitter:title" content="Taseen Waseq | Software Engineer" />
+    <meta property="twitter:description" content="Taseen Waseq — Software engineer with a growing focus on AI tooling and applied ML." />
+    <meta property="twitter:image" content="https://taseenw.me/assets/thumbnail.png" />
 
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      .slideshow-container {
-        position: relative;
-        width: 100%;
-      }
-      
-      .slideshow-wrapper {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
-      
-      .slide {
-        display: none;
-        width: 100%;
-      }
-      
-      .slide.active {
-        display: block;
-      }
-      
-      .slide img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      
-      .slideshow-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(26, 20, 40, 0.75);
-        color: #e8e0f5;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        font-size: 18px;
-        z-index: 10;
-        transition: background-color 0.3s ease;
-      }
-      
-      .slideshow-nav:hover {
-        background-color: rgba(47, 38, 80, 0.9);
-      }
-      
-      .slideshow-nav.prev {
-        left: 10px;
-      }
-      
-      .slideshow-nav.next {
-        right: 10px;
-      }
-      
-      .slideshow-container:hover .slideshow-nav {
-        display: block;
-      }
-    </style>
-    <script src="./javascript/scrollreveal.min.js"></script>
-    <script
-      defer
-      type="text/javascript"
-      src="./javascript/scrollveal.js"
-    ></script>
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"
-    ></script>
+    <style>
+      :root {
+        --bg: #0a0d12;
+        --surface: #10141b;
+        --surface-2: #151a22;
+        --border: #232a35;
+        --border-soft: #1a2029;
+        --text: #e9ebee;
+        --text-dim: #8b93a1;
+        --text-faint: #565f6c;
+        --accent: #6f9bff;
+        --accent-dim: #3a4f8a;
+        --ok: #57c295;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+      .wrap { max-width: 840px; margin: 0 auto; padding-inline: 24px; }
+      a { color: inherit; }
+      img { max-width: 100%; }
+
+      /* ---- nav ---- */
+      .nav {
+        position: sticky; top: 0;
+        z-index: 20;
+        background: rgba(10, 13, 18, 0.86);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .nav-inner {
+        max-width: 840px; margin: 0 auto; padding: 15px 24px;
+        display: flex; align-items: center; justify-content: space-between;
+        font-size: 14px;
+      }
+      .nav-id { display: flex; align-items: center; gap: 8px; color: var(--text-dim); }
+      .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(87,194,149,0.15); flex: none; }
+      .nav-badge {
+        font-size: 12px; color: var(--accent); border: 1px solid var(--accent-dim);
+        background: rgba(111,155,255,0.1);
+        border-radius: 99px; padding: 3px 10px; margin-left: 4px;
+      }
+      .nav-links { display: flex; gap: 20px; }
+      .nav-links a { color: var(--text-dim); text-decoration: none; }
+      .nav-links a:hover { color: var(--text); }
+
+      /* ---- hero ---- */
+      .hero {
+        position: relative;
+        min-height: 88vh; min-height: 88dvh;
+        display: flex; flex-direction: column; justify-content: center;
+        padding-block: 48px 72px;
+      }
+      .hero-eyebrow {
+        font-size: 14px; color: var(--accent); letter-spacing: 0.06em;
+        display: flex; align-items: center; gap: 8px; margin-bottom: 24px;
+      }
+      .hero-eyebrow .arrow { color: var(--accent-dim); font-weight: 700; }
+      h1.hero-title {
+        font-size: clamp(36px, 6vw, 52px);
+        font-weight: 600;
+        line-height: 1.22;
+        letter-spacing: -0.01em;
+        margin: 0 0 22px;
+        text-wrap: balance;
+        color: var(--text);
+      }
+      h1.hero-title .fn { color: var(--text-faint); }
+      h1.hero-title .accent { color: var(--accent); }
+      .hero-desc { font-size: 17px; color: var(--text-dim); max-width: 60ch; margin: 0 0 32px; }
+      .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 38px; }
+      .btn {
+        font-size: 15px; padding: 12px 20px; border-radius: 7px;
+        text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+        border: 1px solid var(--border); transition: border-color .15s, background .15s;
+      }
+      .btn-primary { background: var(--accent); color: #0a0d12; border-color: var(--accent); font-weight: 600; }
+      .btn-primary:hover { background: #82a8ff; }
+      .icon-btn {
+        width: 46px; height: 46px; border-radius: 9px; flex: none;
+        border: 1px solid var(--border); background: var(--surface);
+        display: inline-flex; align-items: center; justify-content: center; color: var(--text-dim);
+        transition: transform .15s ease, border-color .15s ease, color .15s ease;
+      }
+      .icon-btn svg { width: 20px; height: 20px; display: block; }
+      .icon-btn:hover { transform: translateY(-3px); border-color: var(--text-faint); color: var(--text); }
+
+      .status-line { font-size: 14.5px; color: var(--text); display: flex; gap: 22px; flex-wrap: wrap; font-weight: 500; }
+      .status-line b { color: var(--accent); font-weight: 600; }
+
+      .scroll-cue { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); }
+      .scroll-cue a {
+        width: 48px; height: 48px; border-radius: 50%;
+        border: 1px solid var(--border); background: var(--surface);
+        color: var(--text-dim); display: inline-flex; align-items: center; justify-content: center;
+        animation: bob 2.2s ease-in-out infinite;
+        transition: border-color .15s ease, color .15s ease, background .15s ease;
+      }
+      .scroll-cue a:hover { color: var(--text); border-color: var(--accent-dim); background: var(--surface-2); }
+      .scroll-cue svg { width: 22px; height: 22px; }
+      @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .scroll-cue a { animation: none; } }
+
+      /* ---- section shell ---- */
+      section { padding-block: 58px; border-top: 1px solid var(--border-soft); }
+      .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 30px; }
+      .section-num { font-size: 13.5px; color: var(--text-faint); }
+      .section-title { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
+
+      /* ---- about ---- */
+      .about-row { display: flex; gap: 26px; align-items: flex-start; }
+      .about-photo { width: 108px; height: 108px; border-radius: 13px; object-fit: cover; flex: none; border: 1px solid var(--border); }
+      .about-col { flex: 1; min-width: 0; }
+      @media (max-width: 560px) { .about-row { flex-direction: column; } .about-photo { width: 80px; height: 80px; } }
+      .about-text { color: var(--text-dim); font-size: 16.5px; max-width: 62ch; margin: 0 0 32px; }
+      .about-text b { color: var(--text); font-weight: 500; }
+      .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 24px; }
+      @media (max-width: 760px) { .skill-groups { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 520px) { .skill-groups { grid-template-columns: 1fr; } }
+      .skill-label { font-size: 12.5px; color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 13px; }
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag {
+        font-size: 13px; padding: 5px 12px; border-radius: 6px;
+        background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.09);
+        color: var(--text-dim);
+        transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+      }
+      .tag:hover {
+        transform: translateY(-2px);
+        background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2);
+        color: var(--text);
+      }
+      .edu-block { display: flex; gap: 13px; align-items: flex-start; margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--border-soft); }
+      .edu-title { font-size: 15px; font-weight: 600; color: var(--text); }
+      .edu-desc { font-size: 14px; color: var(--text-dim); margin-top: 4px; }
+
+      /* shared logo tile */
+      .role-logo {
+        width: 36px; height: 36px; border-radius: 8px; background: #fff; flex: none;
+        display: flex; align-items: center; justify-content: center; padding: 5px;
+        border: 1px solid var(--border); margin-top: 1px;
+      }
+      .role-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+      /* ---- experience ---- */
+      .timeline { position: relative; padding-left: 22px; }
+      .timeline::before {
+        content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px;
+        background: linear-gradient(var(--border), transparent);
+      }
+      .role { position: relative; padding-bottom: 34px; }
+      .role:last-child { padding-bottom: 0; }
+      .role::before {
+        content: ""; position: absolute; left: -22px; top: 5px; width: 9px; height: 9px;
+        border-radius: 50%; background: var(--surface-2); border: 2px solid var(--accent-dim);
+      }
+      .role.current::before { border-color: var(--ok); background: var(--ok); }
+      .role-head { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 7px; }
+      .role-main { flex: 1; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+      .role-title { font-size: 16.5px; font-weight: 600; color: var(--text); }
+      .role-org { color: var(--accent); font-weight: 600; }
+      .role-date { font-size: 13px; color: var(--text-faint); white-space: nowrap; }
+      .role ul { margin: 8px 0 0 49px; padding-left: 18px; color: var(--text-dim); font-size: 14.5px; }
+      .role li { margin-bottom: 5px; }
+      .role li b { color: var(--text); font-weight: 600; }
+      .role li::marker { color: var(--text-faint); }
+
+      /* ---- projects ---- */
+      .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      @media (max-width: 560px) { .proj-grid { grid-template-columns: 1fr; } }
+      .proj { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+      .proj-media { width: 100%; aspect-ratio: 16/10; background: var(--bg); overflow: hidden; }
+      .proj-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .proj-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+      .proj-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+      .proj-name { font-size: 16px; font-weight: 600; color: var(--text); }
+      .proj-badge { font-size: 11.5px; color: var(--ok); background: rgba(87,194,149,0.1); border: 1px solid rgba(87,194,149,0.25); padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+      .proj-desc { font-size: 14px; color: var(--text-dim); flex: 1; }
+      .proj-links { display: flex; gap: 15px; font-size: 13px; }
+      .proj-links a { color: var(--accent); text-decoration: none; }
+      .proj-links a:hover { text-decoration: underline; }
+
+      /* ---- contact ---- */
+      .contact-box {
+        border: 1px solid var(--border); border-radius: 11px; background: var(--surface);
+        padding: 36px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+      }
+      .contact-box h3 { margin: 0 0 6px; font-size: 21px; color: var(--text); }
+      .contact-box p { margin: 0; color: var(--text-dim); font-size: 15px; }
+      footer { padding-block: 30px 52px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+      .social { display: flex; gap: 17px; }
+      .social a { color: var(--text-faint); text-decoration: none; font-size: 14px; }
+      .social a:hover { color: var(--text-dim); }
+      .foot-meta { font-size: 13px; color: var(--text-faint); }
+    </style>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -118,678 +247,267 @@
     </script>
   </head>
   <body>
-    <div id="hero">
-      <section class="container">
+    <nav class="nav">
+      <div class="nav-inner mono">
+        <div class="nav-id"><span class="dot"></span> taseen@waseq <span class="nav-badge">effort: "high"</span></div>
+        <div class="nav-links">
+          <a href="#work">work</a>
+          <a href="#projects">projects</a>
+          <a href="#contact">contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero-eyebrow mono"><span class="arrow">&gt;</span> big picture builder</div>
         <h1 class="hero-title">
-          Hey, my name is <span class="text-color-main name">Taseen Waseq</span>
+          Taseen Waseq<span class="accent">;</span>
           <br />
-          Welcome to my Developer Portfolio.
+          <span class="accent">Welcome.</span>
         </h1>
-        <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#contact">Get in touch</a>
+        <p class="hero-desc">
+          Full-stack fundamentals, leaning further each year into AI tooling and applied ML.
         </p>
-      </section>
-      <a href="#about" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div>
-      </a>
-    </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="icon-btn" href="https://github.com/taseenw" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.03c0 5.05 3.29 9.33 7.86 10.84.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.58.23 2.75.12 3.04.73.81 1.17 1.84 1.17 3.1 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.08.78 2.18 0 1.58-.01 2.85-.01 3.24 0 .3.2.66.79.55A10.55 10.55 0 0 0 23.5 12c0-6.28-5.22-11.5-11.5-11.5Z" /></svg>
+          </a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/taseenw/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.83v1.64h.05c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.78 2.66 4.78 6.11V21h-4v-5.7c0-1.36-.02-3.1-1.89-3.1-1.9 0-2.19 1.48-2.19 3v5.8h-4V9Z" /></svg>
+          </a>
+        </div>
+        <div class="status-line mono">
+          <span><b>role</b> Software Engineer @ Autodesk</span>
+          <span><b>also</b> CTO @ 4ummah</span>
+          <span><b>edu</b> Carleton University, CS</span>
+        </div>
+        <div class="scroll-cue">
+          <a href="#about" aria-label="Scroll down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v14M6 13l6 6 6-6" /></svg>
+          </a>
+        </div>
+      </header>
 
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="row about-wrapper">
-          <div class="about-wrapper__image">
-            <img
-              class="img-fluid"
-              src="./assets/headshotPFP.png"
-              alt="Profile Image"
-            />
-          </div>
-          <div class="about-wrapper__info">
-            <p class="about-wrapper__info-text">
-              Bilingual CS Student graduate with 4 + years of professional development experience. 
-              <br><br>Perpetual learner and programmer, avidly seeking new 
-              opportunities to grow and develop my skillset. 
+      <section id="about">
+        <div class="section-head">
+          <span class="section-num mono">01</span>
+          <span class="section-title">About</span>
+        </div>
+        <div class="about-row">
+          <img class="about-photo" src="./assets/profile.jpg" alt="Taseen Waseq" />
+          <div class="about-col">
+            <p class="about-text">
+              CS graduate with <b>4+ years</b> of engineering experience across established companies
+              and startups, including experience leading and teaching as a TA for
+              <b>COMP 2406: Fundamentals of Web Applications</b>.
             </p>
-
-            <div class="about-skills">
-              <div class="about-skills__group">
-                <h3 class="about-skills__label">Languages</h3>
-                <ul class="about-skills__list">
-                  <li><span class="about-skills__item">Python</span></li>
-                  <li><span class="about-skills__item">Java</span></li>
-                  <li><span class="about-skills__item">JavaScript</span></li>
-                  <li><span class="about-skills__item">C</span></li>
-                  <li><span class="about-skills__item">C++</span></li>
-                  <li><span class="about-skills__item">C#</span></li>
-                  <li><span class="about-skills__item">TypeScript</span></li>
-                  <li><span class="about-skills__item">PHP</span></li>
-                  <li><span class="about-skills__item">SQL</span></li>
-                  <li><span class="about-skills__item">HTML</span></li>
-                  <li><span class="about-skills__item">SCSS / CSS</span></li>
-                </ul>
+            <div class="skill-groups">
+              <div>
+                <div class="skill-label mono">Languages</div>
+                <div class="tags">
+                  <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+                  <span class="tag">Java</span><span class="tag">C++</span><span class="tag">C</span>
+                  <span class="tag">C#</span><span class="tag">SQL</span><span class="tag">PHP</span>
+                  <span class="tag">HTML</span><span class="tag">SCSS / CSS</span>
+                </div>
               </div>
-              <br>
-              <div class="about-skills__group">
-                <h3 class="about-skills__label">Frameworks &amp; tools</h3>
-                <ul class="about-skills__list">
-                  <li><span class="about-skills__item">Git</span></li>
-                  <li><span class="about-skills__item">Angular</span></li>
-                  <li><span class="about-skills__item">React</span></li>
-                  <li><span class="about-skills__item">Node.js</span></li>
-                  <li><span class="about-skills__item">MySQL</span></li>
-                  <li><span class="about-skills__item">PostgreSQL</span></li>
-                  <li><span class="about-skills__item">MongoDB</span></li>
-                  <li><span class="about-skills__item">Docker</span></li>
-                  <li><span class="about-skills__item">Selenium</span></li>
-                  <li><span class="about-skills__item">Splunk</span></li>
-                  <li><span class="about-skills__item">Cypress</span></li>
-                  <li><span class="about-skills__item">Bootstrap</span></li>
-                </ul>
+              <div>
+                <div class="skill-label mono">AI &amp; agent tooling</div>
+                <div class="tags">
+                  <span class="tag">Claude Code</span><span class="tag">Cursor</span><span class="tag">Codex</span>
+                  <span class="tag">Agent Workflows</span><span class="tag">Agent ADK</span><span class="tag">Langfuse</span>
+                </div>
+              </div>
+              <div>
+                <div class="skill-label mono">Frameworks &amp; infra</div>
+                <div class="tags">
+                  <span class="tag">React</span><span class="tag">Angular</span><span class="tag">Node.js</span>
+                  <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">PostgreSQL</span>
+                  <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Cosmos DB</span>
+                  <span class="tag">Selenium</span><span class="tag">Splunk</span><span class="tag">Cypress</span>
+                  <span class="tag">Bootstrap</span>
+                </div>
               </div>
             </div>
-            <br><br>
-            <span class="about-wrapper__cta">
-              <a href="assets\Taseen_W_Resume.pdf" class="cta-btn cta-btn--resume">My Resume</a>
-            </span>
-          </div>
-          <div class="social-links">
-            <a
-              href="https://www.youtube.com/channel/UC4Oalqat4VhD-zmGAA5uvfA"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="youtube"
-            >
-              <i class="fa fa-youtube"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/taseenw/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="linkedin"
-            >
-              <i class="fa fa-linkedin"></i>
-            </a>
-            <a
-              href="https://github.com/taseenw"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="github"
-            >
-              <i class="fa fa-github"></i>
-            </a>
+            <div class="edu-block">
+              <div class="role-logo"><img src="./assets/logos/carleton.png" alt="Carleton University" /></div>
+              <div>
+                <div class="edu-title">Computer Science <span class="role-org">@ Carleton University</span></div>
+                <div class="edu-desc">Co-op option, Dean's Honour List, $8,000 entrance scholarship.</div>
+              </div>
+            </div>
           </div>
         </div>
-        
-      </div>
-    </section>
+      </section>
 
-
-    <section id="projects">
-      <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">I have been...</h2><br>
-          <article class="row">
-            <div class="project-wrapper__text experience-col experience-col--left">
-              <div class="education-block">
-                <div class="logo-tile">
-                  <img src="cuPNG.png" alt="Carleton University" />
-                </div>
-                <br /><br />
-                <h3 class="project-wrapper__text-title">Computer Science</h3>
-                <p class="project-wrapper__text-info">
-                  Co-op option; entrance scholarship ($8000); Deans&apos; Honour List.
-                </p>
-                <h4 class="project-wrapper__text-title">Teaching Assistant</h4>
-                <p class="project-wrapper__text-info">
-                  COMP 2406: Fundamentals of Web Applications (2024-2025)
-                </p>
-                <p class="project-wrapper__text-info courses-heading">
-                  <b>Relevant courses</b>
-                </p>
-                <ul class="courses-list">
-                  <li>Discrete Structures I/II</li>
-                  <li>Data Structures and Algorithms</li>
-                  <li>Programming Paradigms</li>
-                  <li>Software Engineering (C/C++)</li>
-                  <li>OOP (Java)</li>
-                  <li>Python Programming</li>
-                  <li>Database Management Systems</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="project-wrapper__text experience-col experience-col--right">
-              <div class="experience-role">
-                <div class="logo-tile">
-                  <img src="Kinaxis-Logo.png" alt="Kinaxis" />
-                </div>
-                <h3 class="project-wrapper__text-title">
-                  Software Developer Intern
-                  <div style="font-size: small; font-weight: 100">
-                    September 2025 - Present
-                  </div>
-                </h3>
-                <ul class="experience-bullets">
-                  <li>
-                    Maestro (<b>Fortune 500</b> manufacturers): TypeScript on
-                    AI-powered supply chain platform.
-                  </li>
-                  <li>
-                    Led BigQuery optimizer Chrome extension: Vertex AI cost analysis,
-                    automated query optimization, and schema ingestion from dataset JSON.
-                  </li>
-                  <li>
-                    Keyboard accessibility for worksheet trees: <b>100%</b> interaction
-                    coverage, WCAG-aligned.
-                  </li>
-                  <li>
-                    Network throttling fixes via synchronous state; timeouts reduced to
-                    <b>sub-10ms</b>.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="experience-role">
-                <div class="logo-tile">
-                  <img src="Autodesk-Logo.png" alt="Autodesk" />
-                </div>
-                <h3 class="project-wrapper__text-title">
-                  Software Engineer Intern
-                  <div style="font-size: small; font-weight: 100">
-                    May 2025 - August 2025
-                  </div>
-                </h3>
-                <ul class="experience-bullets">
-                  <li>
-                    Fusion (<b>4.6M+</b> users): C++, Qt, React, Gherkin-based automation.
-                  </li>
-                  <li>
-                    Cross-repository UI for purchasable extensions and localization;
-                    improved UX and conversion.
-                  </li>
-                  <li>
-                    Resolved critical build and dependency failures blocking team
-                    productivity.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="experience-role">
-                <div class="logo-tile">
-                  <img src="df.png" alt="Dayforce" />
-                </div>
-                <h3 class="project-wrapper__text-title">
-                  Software Developer Intern
-                  <div style="font-size: small; font-weight: 100">
-                    May 2024 - December 2024
-                  </div>
-                </h3>
-                <ul class="experience-bullets">
-                  <li>
-                    Enterprise HCM at scale (<b>6M+</b> users): React, Redux, .NET.
-                  </li>
-                  <li>
-                    Full-stack, client-focused solutions improving UX and functionality.
-                  </li>
-                  <li>
-                    Cypress automation: manual runs of several minutes to
-                    <b>10 seconds</b>.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="experience-role">
-                <div class="logo-tile">
-                  <img src="ccPNG.png" alt="Clincove clinical trial platform" />
-                </div>
-                <h3 class="project-wrapper__text-title">
-                  Junior Software Developer
-                  <div style="font-size: small; font-weight: 100">
-                    June 2023 - August 2024
-                  </div>
-                </h3>
-                <ul class="experience-bullets">
-                  <li>
-                    Founding engineer: cloud clinical trial platform,
-                    <b>35%</b> faster trial startup; PostgreSQL, compliance-focused.
-                  </li>
-                  <li>
-                    Real-time tracking: monitoring costs down <b>40%</b>; CI/CD for data.
-                  </li>
-                  <li>
-                    Angular UI, dashboards, and JWT REST APIs with Jest (full coverage);
-                    Ionic and component libraries.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="experience-role">
-                <div class="logo-tile logo-tile--lg">
-                  <img src="trendPNG.png" alt="Trend Micro" />
-                </div>
-                <h3 class="project-wrapper__text-title">
-                  Software Developer Intern
-                  <div style="font-size: small; font-weight: 100">
-                    September 2023 - December 2023
-                  </div>
-                </h3>
-                <ul class="experience-bullets">
-                  <li>
-                    Deep Security: Java EE connectors for AWS, GCP, and Azure.
-                  </li>
-                  <li>
-                    Splunk dashboards for live metrics, <b>10,000+</b> synchronizations;
-                    processing from minutes to <b>11 seconds</b>.
-                  </li>
-                  <li>
-                    Security hardening and tracking of IAM, Lambdas, EC2, and related
-                    cloud resources.
-                  </li>
-                </ul>
-              </div>
-
-              <div class="experience-role">
-                <div class="logo-tile">
-                  <img src="ibPNG.png" alt="Ideabytes" />
-                </div>
-                <h3 class="project-wrapper__text-title">
-                  Software Engineering Intern
-                  <div style="font-size: small; font-weight: 100">
-                    Feb 2022 - Jan 2023
-                  </div>
-                </h3>
-                <ul class="experience-bullets">
-                  <li>
-                    Java web app: translations, PDF merge, and client-server APIs.
-                  </li>
-                  <li>
-                    Led Angular admin portal for insurance package configuration.
-                  </li>
-                  <li>
-                    Python optimizations (hashmaps) for dangerous-goods classification.
-                  </li>
-                  <li>
-                    High-traffic apps (<b>1000+</b> daily transactions); SQL architecture
-                    with legacy integration.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-          </article>
-
+      <section id="work">
+        <div class="section-head">
+          <span class="section-num mono">02</span>
+          <span class="section-title">Experience</span>
         </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">TW Lightwork: YouTube, TikTok, Instagram</h3>
-              <p class="project-wrapper__text-info">
-                Multi-platform content creation channel dedicated to creating easy to understand 
-                computer science tutorials across YouTube, TikTok, and Instagram. Ranging from beginner to more 
-                advanced concepts, and coding problems. Offering consistent 
-                viewer help, and source code for all tutorials through GitHub.
-                Teaching is the best way to learn.
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://www.youtube.com/@TW.Lightwork"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >YouTube Channel</a
-                >
-                <a
-                  href="https://www.tiktok.com/@tw.lightwork"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >TikTok</a
-                >
-                <a
-                  href="https://instagram.com/tw.lightwork"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Instagram</a
-                >
-                <a href="https://github.com/taseenw/CS-Lightwork" target="_blank" class="cta-btn text-color-main"
-                  >Source Codes</a
-                >
+        <div class="timeline">
+          <div class="role current">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/autodesk.png" alt="Autodesk" /></div>
+              <div class="role-main">
+                <span class="role-title">Software Engineer <span class="role-org">@ Autodesk</span></span>
+                <span class="role-date mono">present</span>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <div class="thumbnail rounded slideshow-container">
-                <div class="slideshow-wrapper" id="csLightworkSlideshow">
-                  <button class="slideshow-nav prev" onclick="changeSlide(-1)">&#10094;</button>
-                  <button class="slideshow-nav next" onclick="changeSlide(1)">&#10095;</button>
-                  
-                  <div class="slide active">
-                    <a href="https://www.youtube.com/@TW.Lightwork" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="./assets/tw-lightwork-yt.png"
-                        class="img-fluid"
-                        alt="TW Lightwork YouTube"
-                      />
-                    </a>
-                  </div>
-                  
-                  <div class="slide">
-                    <a href="https://www.tiktok.com/@tw.lightwork" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="./assets/tw-lightwork-tt.png"
-                        class="img-fluid"
-                        alt="TW Lightwork TikTok"
-                      />
-                    </a>
-                  </div>
-                  
-                  <div class="slide">
-                    <a href="https://instagram.com/tw.lightwork" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="./assets/tw-lightwork-ig.png"
-                        class="img-fluid"
-                        alt="TW Lightwork Instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
+            <ul><li>AI development &amp; automation, reducing friction so engineers can build faster.</li></ul>
+          </div>
+          <div class="role current">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/4ummah.jpg" alt="4ummah" /></div>
+              <div class="role-main">
+                <span class="role-title">CTO <span class="role-org">@ 4ummah</span></span>
+                <span class="role-date mono">present</span>
               </div>
             </div>
-          </article>
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Neural Network Performance Comparison</h3>
-              <p class="project-wrapper__text-info">
-                Evaluated custom vs. pre-trained models on CIFAR-10, showing 26% accuracy improvement through transfer learning. Implemented and compared three different architectures using PyTorch, demonstrating the effectiveness of transfer learning over training from scratch.
-              </p>
-                  <div class="project-wrapper__text-btns">
-                    
-                      <a href="https://github.com/taseenw/ML-cnn-vs-transfer-learning-cifar10"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="cta-btn cta-btn--hero cta-btn--projects"
-                      >Source Code</a
-                    >
-                    <a href="./assets/NN-comp-video.mov" target="_blank" class="cta-btn text-color-main"
-                      >Demo Video</a
-                    >
-                  </div>
-            </div>
-          
-            <div class="project-wrapper__image">
-              <div class="thumbnail rounded video-container">
-                <video 
-                  class="img-fluid project-video" 
-                  controls 
-                >
-                  <source src="./assets/NN-comp-video.mov" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <ul><li>Founding engineer on 4ummah's web app, built it, and now lead the engineering team and technical direction while keeping it running day to day.</li></ul>
+          </div>
+          <div class="role">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/kinaxis.png" alt="Kinaxis" /></div>
+              <div class="role-main">
+                <span class="role-title">Software Developer Intern <span class="role-org">@ Kinaxis</span></span>
+                <span class="role-date mono">2025</span>
               </div>
             </div>
-          </article>
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Social Saplings</h3>
-              <p><b> Awarded 1st Place Overall in KuriusHacks</b></p>
-              <p class="project-wrapper__text-info">
-                A social media platform designed for reforestation initiatives. Its core features include a tree recommendation tool based on the user's local environmental conditions, a global tree-planting map, a dynamic social media feed for community engagement, personalized user profiles highlighting CO2 impact, and an interactive reforestation game.
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://devpost.com/software/socialsaplings"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Dev Post</a
-                >
-                <a href="https://github.com/nbui23/socialsaplings" target="_blank" class="cta-btn text-color-main"
-                >Source Code</a
-              >
+            <ul>
+              <li>Built on <b>Maestro</b>, an AI-powered supply chain platform for Fortune 500 manufacturers, in TypeScript.</li>
+              <li>Led a BigQuery optimizer Chrome extension: Vertex AI cost analysis and automated query optimization.</li>
+              <li>Shipped keyboard accessibility across worksheet trees, <b>100%</b> interaction coverage, WCAG-aligned.</li>
+              <li>Fixed network throttling via synchronous state; timeouts cut to <b>sub-10ms</b>.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/autodesk.png" alt="Autodesk" /></div>
+              <div class="role-main">
+                <span class="role-title">Software Engineer Intern <span class="role-org">@ Autodesk</span></span>
+                <span class="role-date mono">2025</span>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <a href="https://devpost.com/software/socialsaplings" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/socialSaplings.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-
-          <!-- <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Olympic Medal Predictor</h3>
-              <p class="project-wrapper__text-info">
-                Built ML model forecasting medal counts from 2,000+ Olympic records with 3.3 MAE leveraging linear regression. Analyzed historical Olympic data using Python and Scikit-learn to predict country performance, implementing data preprocessing, correlation analysis, and feature engineering techniques.
-              </p>
-              <div class="project-wrapper__text-btns">
-                
-                  <a href="https://github.com/taseenw/ML-medal-prediction"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Source Code</a
-                >
-                <a href="./assets/Olympic-Medal-predictor-video.mov" target="_blank" class="cta-btn text-color-main"
-                  >Demo Video</a
-                >
+            <ul>
+              <li>Worked on Fusion (<b>4.6M+</b> users) using C++, Qt, React, and Gherkin-based automation.</li>
+              <li>Built cross-repository UI for purchasable extensions and localization, improving conversion.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/dayforce.png" alt="Dayforce" /></div>
+              <div class="role-main">
+                <span class="role-title">Software Developer Intern <span class="role-org">@ Dayforce</span></span>
+                <span class="role-date mono">2024</span>
               </div>
             </div>
-          
-            <div class="project-wrapper__image">
-              <div class="thumbnail rounded video-container">
-                <video 
-                  class="img-fluid project-video" 
-                  controls 
-                >
-                  <source src="./assets/Olympic-Medal-predictor-video.mov" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <ul>
+              <li>Enterprise HCM at scale (<b>6M+</b> users) using React, Redux, and .NET.</li>
+              <li>Cypress automation: manual runs of several minutes down to <b>10 seconds</b>.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/clincove.png" alt="Clincove" /></div>
+              <div class="role-main">
+                <span class="role-title">Junior Software Developer <span class="role-org">@ Clincove</span></span>
+                <span class="role-date mono">2023-24</span>
               </div>
             </div>
-          </article> -->
-
-          
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">TAWallet</h3>
-              <p class="project-wrapper__text-info">
-                Web application for investors to track all of their holdings in one place, 
-                through real-time price tracking for 2400+ companies using the MarketStack Stock API.
-                Allowing users to add buys/sells and track the performance of their
-                individual holdings, portfolio overall and export to .xlsx. Easy to use
-                UI with creative design, interacitvity, and functionality. Providing
-                secure credential/wallet storage, and thorough transaction/input validation.
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://github.com/taseenw/TAWallet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Source Code</a>
+            <ul>
+              <li>Founding engineer on a cloud clinical trial platform, <b>35%</b> faster trial startup.</li>
+              <li>Real-time cost tracking cut monitoring spend <b>40%</b>; Angular UI with full Jest coverage.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div class="role-head">
+              <div class="role-logo"><img src="./assets/logos/ideabytes.png" alt="Ideabytes" /></div>
+              <div class="role-main">
+                <span class="role-title">Software Engineering Intern <span class="role-org">@ Ideabytes</span></span>
+                <span class="role-date mono">2022-23</span>
               </div>
             </div>
-
-            <div class="project-wrapper__image">
-              <a href="https://github.com/taseenw/TAWallet" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/tawallet.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">NeuroSet - EEG Treatment Simulator</h3>
-              <p class="project-wrapper__text-info">
-                Developed a C++ and Qt-based simulation software for the Neuroset EEG neurofeedback device, featuring EEG signal processing, user-friendly UI, and comprehensive session management. Designed system architecture, conducted rigorous testing
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://github.com/TimothyTruong/NeuroSet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-          
-              <div class="project-wrapper__image">
-              <a href="https://github.com/TimothyTruong/NeuroSet" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/neuroset.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-
-           <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Social Media SMS Update Bot</h3>
-              <p class="project-wrapper__text-info">
-                Program gathering users YouTube, Instagram, and Twitter data and returning 
-                the info by text within 17 seconds. Automated web scraping and form 
-                submission using Selenium, outgoing text message using Twilio API
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://github.com/taseenw/Social-Media-SMS-Bot/tree/main"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-          
-              <div class="project-wrapper__image">
-              <a href="https://github.com/taseenw/Social-Media-SMS-Bot/blob/main/main.py" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/smsBot.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-
-          
+            <ul>
+              <li>Led an Angular admin portal for insurance package configuration.</li>
+              <li>Shipped a Java web app for translations, PDF merges, and client-server APIs.</li>
+              <li>Applied Python hashmap optimizations for dangerous-goods classification across <b>1,000+</b> daily transactions.</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper">
-          <p class="contact-wrapper__text">
-            Email: taseen.waseq@gmail.com<br>
-            Canada - Ottawa, Ontario<br><br>
-          </p>
-          <a href="#" class="cta-btn cta-btn--resume">Return to Top</a>
+      <section id="projects">
+        <div class="section-head">
+          <span class="section-num mono">03</span>
+          <span class="section-title">Projects</span>
         </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <a href="#hero" class="back-to-top" aria-label="go back to top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
-        <div class="social-links">
-          <a
-            href="https://www.youtube.com/channel/UC4Oalqat4VhD-zmGAA5uvfA"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="youtube"
-          >
-            <i class="fa fa-youtube"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/taseenw/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="linkedin"
-          >
-            <i class="fa fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/taseenw"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="github"
-          >
-            <i class="fa fa-github"></i>
-          </a>
+        <div class="proj-grid">
+          <div class="proj">
+            <div class="proj-body">
+              <div class="proj-top">
+                <span class="proj-name">Neural Network Performance Comparison</span>
+              </div>
+              <p class="proj-desc">Custom vs. pre-trained models on CIFAR-10, <b style="color: var(--text)">26%</b> accuracy gain via transfer learning across three PyTorch architectures.</p>
+              <div class="proj-links">
+                <a href="https://github.com/taseenw/ML-cnn-vs-transfer-learning-cifar10" target="_blank" rel="noopener noreferrer">Source →</a>
+              </div>
+            </div>
+          </div>
+          <div class="proj">
+            <div class="proj-media"><img src="./assets/socialSaplings.png" alt="Social Saplings" /></div>
+            <div class="proj-body">
+              <div class="proj-top">
+                <span class="proj-name">Social Saplings</span>
+                <span class="proj-badge">1st · KuriusHacks</span>
+              </div>
+              <p class="proj-desc">Reforestation social platform with tree recommendations, a planting map, CO2-impact profiles, and a planting game.</p>
+              <div class="proj-links">
+                <a href="https://devpost.com/software/socialsaplings" target="_blank" rel="noopener noreferrer">Devpost →</a>
+                <a href="https://github.com/nbui23/socialsaplings" target="_blank" rel="noopener noreferrer">Source →</a>
+              </div>
+            </div>
+          </div>
+          <div class="proj">
+            <div class="proj-media"><img src="./assets/tw-lightwork-yt.png" alt="TW Lightwork" /></div>
+            <div class="proj-body">
+              <div class="proj-top">
+                <span class="proj-name">TW Lightwork</span>
+              </div>
+              <p class="proj-desc">Multi-platform CS tutorial channel across YouTube, TikTok, and Instagram, with full source for every lesson.</p>
+              <div class="proj-links">
+                <a href="https://www.youtube.com/@TW.Lightwork" target="_blank" rel="noopener noreferrer">YouTube →</a>
+                <a href="https://github.com/taseenw/CS-Lightwork" target="_blank" rel="noopener noreferrer">Source →</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <hr />
-        <p class="footer__text">
-        </p>
-      </div>
-    </footer>
+      </section>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-    <script src="./javascript/vanilla-tilt.min.js"></script>
-    <script type="text/javascript" src="./javascript/valtilt.js"></script>
-    <script>
-      // TW Lightwork Slideshow
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('#csLightworkSlideshow .slide');
-      
-      function showSlide(index) {
-        if (index >= slides.length) {
-          currentSlide = 0;
-        } else if (index < 0) {
-          currentSlide = slides.length - 1;
-        } else {
-          currentSlide = index;
-        }
-        
-        slides.forEach((slide, i) => {
-          slide.classList.remove('active');
-          if (i === currentSlide) {
-            slide.classList.add('active');
-          }
-        });
-      }
-      
-      function changeSlide(direction) {
-        showSlide(currentSlide + direction);
-      }
-      
-      // Initialize - show first slide
-      if (slides.length > 0) {
-        showSlide(0);
-      }
-    </script>
+      <section id="contact">
+        <div class="section-head">
+          <span class="section-num mono">04</span>
+          <span class="section-title">Contact</span>
+        </div>
+        <div class="contact-box">
+          <div>
+            <h3>Let's talk.</h3>
+            <p class="mono">taseen.waseq@gmail.com</p>
+          </div>
+          <a class="btn btn-primary" href="mailto:taseen.waseq@gmail.com">Email me</a>
+        </div>
+      </section>
+
+      <footer>
+        <span class="foot-meta mono">© 2026 Taseen Waseq</span>
+        <div class="social mono">
+          <a href="https://github.com/taseenw" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/taseenw/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.youtube.com/channel/UC4Oalqat4VhD-zmGAA5uvfA" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
