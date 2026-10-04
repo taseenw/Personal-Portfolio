@@ -152,15 +152,29 @@
       .section-title { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
 
       /* ---- about ---- */
-      .about-row { display: flex; gap: 26px; align-items: flex-start; }
-      .about-photo { width: 108px; height: 108px; border-radius: 13px; object-fit: cover; flex: none; border: 1px solid var(--border); }
-      .about-col { flex: 1; min-width: 0; }
-      @media (max-width: 560px) { .about-row { flex-direction: column; } .about-photo { width: 80px; height: 80px; } }
+      .about-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 48px; align-items: start; }
+      @media (min-width: 1000px) { .about-row { margin-inline: -90px; } }
+      .about-left { display: flex; flex-direction: column; gap: 26px; }
+      .about-photo { width: 132px; height: 132px; border-radius: 14px; object-fit: cover; border: 1px solid var(--border); }
+      @media (max-width: 760px) { .about-row { grid-template-columns: 1fr; gap: 36px; } }
       .about-text { color: var(--text-dim); font-size: 16.5px; max-width: 62ch; margin: 0 0 32px; }
       .about-text b { color: var(--text); font-weight: 500; }
-      .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 24px; }
-      @media (max-width: 760px) { .skill-groups { grid-template-columns: 1fr 1fr; } }
-      @media (max-width: 520px) { .skill-groups { grid-template-columns: 1fr; } }
+      .skill-groups { display: flex; flex-direction: column; gap: 14px; }
+      .skill-group { border: 1px solid var(--border); border-radius: 9px; background: var(--surface); }
+      .skill-group summary {
+        list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+        padding: 13px 16px; margin-bottom: 0; user-select: none;
+        color: var(--text); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+        transition: color .15s ease, background .15s ease;
+      }
+      .skill-group summary::-webkit-details-marker { display: none; }
+      .skill-group summary::after {
+        content: "+"; color: var(--accent); font-size: 20px; line-height: 1; font-family: 'JetBrains Mono', monospace;
+      }
+      .skill-group[open] summary::after { content: "−"; }
+      .skill-group summary:hover { background: var(--surface-2); border-radius: 9px; }
+      .skill-group[open] summary { border-bottom: 1px solid var(--border-soft); }
+      .skill-group .tags { padding: 16px; overflow: hidden; }
       .skill-label { font-size: 12.5px; color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 13px; }
       .tags { display: flex; flex-wrap: wrap; gap: 8px; }
       .tag {
@@ -174,7 +188,8 @@
         background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2);
         color: var(--text);
       }
-      .edu-block { display: flex; gap: 13px; align-items: flex-start; margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--border-soft); }
+      .edu-block { display: flex; gap: 13px; align-items: flex-start; }
+      .edu-divider { height: 1px; margin: 22px 0 26px; background: linear-gradient(90deg, var(--accent-dim), var(--border) 45%, transparent); }
       .edu-title { font-size: 15px; font-weight: 600; color: var(--text); }
       .edu-desc { font-size: 14px; color: var(--text-dim); margin-top: 4px; }
 
@@ -186,25 +201,63 @@
       }
       .role-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
+      /* ---- journey (horizontal) ---- */
+      .journey { padding: 0 0 44px; }
+      .edu-block .role-logo { width: 60px; height: 60px; border-radius: 12px; padding: 7px; }
+      @media (max-width: 760px) { .journey { overflow-x: auto; scrollbar-width: none; } .journey::-webkit-scrollbar { display: none; } .journey-track { min-width: 640px; } }
+      .journey-track { position: relative; display: flex; justify-content: space-between; align-items: flex-start; }
+      .journey-track::before {
+        content: ""; position: absolute; left: 0; right: 0; top: 36px; height: 2px;
+        background: linear-gradient(90deg, transparent, var(--border) 6%, var(--border) 94%, transparent);
+      }
+      .jnode { position: relative; display: flex; flex-direction: column; align-items: center; }
+      .jlogos { position: relative; display: flex; gap: 12px; height: 72px; align-items: center; }
+      .jlogo-wrap { position: relative; display: block; text-decoration: none; outline: none; border-radius: 14px; }
+      .jlogo {
+        width: 72px; height: 72px; border-radius: 14px; background: #fff; border: 1px solid var(--border);
+        display: flex; align-items: center; justify-content: center; padding: 8px;
+        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; position: relative; z-index: 1;
+      }
+      .jlogo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+      .jnode.current .jlogo { border-color: var(--ok); }
+      .jlogo-wrap:hover .jlogo, .jlogo-wrap:focus-visible .jlogo {
+        transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+      }
+      .jcard {
+        position: absolute; bottom: calc(100% + 16px); left: 50%; transform: translate(-50%, 6px);
+        width: 200px; padding: 12px 14px; border-radius: 10px; background: var(--surface-2);
+        border: 1px solid var(--border); box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+        opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 5;
+      }
+      .jcard b { display: block; font-size: 14px; color: var(--text); font-weight: 600; }
+      .jcard span { display: block; font-size: 13px; color: var(--accent); margin-top: 3px; }
+      .jcard small { display: block; font-size: 12px; color: var(--text-faint); margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+      .jlogo-wrap:hover .jcard, .jlogo-wrap:focus-visible .jcard { opacity: 1; transform: translate(-50%, 0); }
+      .jmeta { margin-top: 14px; display: flex; flex-direction: column; align-items: center; gap: 3px; text-align: center; }
+      .jname { font-size: 14px; color: var(--text); font-weight: 500; white-space: nowrap; }
+      .jyear { font-size: 13px; color: var(--text-faint); font-family: 'JetBrains Mono', monospace; }
+      @media (prefers-reduced-motion: reduce) { .jlogo, .jcard { transition: none; } }
+
       /* ---- experience ---- */
       .timeline { position: relative; padding-left: 22px; }
       .timeline::before {
         content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px;
         background: linear-gradient(var(--border), transparent);
       }
-      .role { position: relative; padding-bottom: 34px; }
+      .role { position: relative; padding-bottom: 34px; scroll-margin-top: 96px; }
       .role:last-child { padding-bottom: 0; }
       .role::before {
         content: ""; position: absolute; left: -22px; top: 5px; width: 9px; height: 9px;
         border-radius: 50%; background: var(--surface-2); border: 2px solid var(--accent-dim);
       }
       .role.current::before { border-color: var(--ok); background: var(--ok); }
-      .role-head { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 7px; }
-      .role-main { flex: 1; display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+      .role-head { display: flex; gap: 13px; align-items: center; margin-bottom: 7px; }
+      .role-main { flex: 1; display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; }
       .role-title { font-size: 16.5px; font-weight: 600; color: var(--text); }
       .role-org { color: var(--accent); font-weight: 600; }
       .role-date { font-size: 13px; color: var(--text-faint); white-space: nowrap; }
-      .role ul { margin: 8px 0 0 49px; padding-left: 18px; color: var(--text-dim); font-size: 14.5px; }
+      .role .role-logo { width: 60px; height: 60px; border-radius: 12px; padding: 7px; margin-top: 0; }
+      .role ul { margin: 10px 0 0 73px; padding-left: 18px; color: var(--text-dim); font-size: 14.5px; }
       .role li { margin-bottom: 5px; }
       .role li b { color: var(--text); font-weight: 600; }
       .role li::marker { color: var(--text-faint); }
@@ -296,15 +349,24 @@
           <span class="section-title">About</span>
         </div>
         <div class="about-row">
-          <img class="about-photo" src="./assets/profile.jpg" alt="Taseen Waseq" />
-          <div class="about-col">
+          <div class="about-left">
+            <img class="about-photo" src="./assets/profile.jpg" alt="Taseen Waseq" />
             <p class="about-text">
               CS graduate with <b>4+ years</b> of engineering experience across established companies
               and startups, with experience leading teams and teaching students web development fundamentals.
             </p>
-            <div class="skill-groups">
+          </div>
+          <div class="skill-groups">
+            <div class="edu-block">
+              <div class="role-logo"><img src="./assets/logos/carleton.png" alt="Carleton University" /></div>
               <div>
-                <div class="skill-label mono">Languages</div>
+                <div class="edu-title">Computer Science <span class="role-org">@ Carleton University</span></div>
+                <div class="edu-desc">Co-op option, Dean's Honour List, $8,000 entrance scholarship.</div>
+              </div>
+            </div>
+            <div class="edu-divider"></div>
+              <details class="skill-group">
+                <summary class="skill-label mono">Languages</summary>
                 <div class="tags">
                   <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
                   <span class="tag">Java</span><span class="tag">C++</span><span class="tag">C</span>
@@ -312,18 +374,18 @@
                   <span class="tag">HTML</span><span class="tag">SCSS / CSS</span>
                   <span class="tag">English</span><span class="tag">French</span>
                 </div>
-              </div>
-              <div>
-                <div class="skill-label mono">AI &amp; agent tooling</div>
+              </details>
+              <details class="skill-group">
+                <summary class="skill-label mono">AI &amp; agent tooling</summary>
                 <div class="tags">
                   <span class="tag">Claude Code</span><span class="tag">Cursor</span><span class="tag">Codex</span>
                   <span class="tag">Agent Workflows</span><span class="tag">Agent ADK</span><span class="tag">Langfuse</span>
                   <span class="tag">LLM Evaluation</span><span class="tag">Agentic SDKs</span><span class="tag">MCP</span>
                   <span class="tag">Azure OpenAI</span><span class="tag">Vertex AI</span><span class="tag">Computer Vision</span>
                 </div>
-              </div>
-              <div>
-                <div class="skill-label mono">Frameworks &amp; infra</div>
+              </details>
+              <details class="skill-group">
+                <summary class="skill-label mono">Frameworks &amp; infra</summary>
                 <div class="tags">
                   <span class="tag">React</span><span class="tag">Angular</span><span class="tag">Node.js</span>
                   <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">PostgreSQL</span>
@@ -335,15 +397,7 @@
                   <span class="tag">Blob Storage</span><span class="tag">Key Vault</span><span class="tag">BigQuery</span>
                   <span class="tag">AWS</span><span class="tag">GCP</span>
                 </div>
-              </div>
-            </div>
-            <div class="edu-block">
-              <div class="role-logo"><img src="./assets/logos/carleton.png" alt="Carleton University" /></div>
-              <div>
-                <div class="edu-title">Computer Science <span class="role-org">@ Carleton University</span></div>
-                <div class="edu-desc">Co-op option, Dean's Honour List, $8,000 entrance scholarship.</div>
-              </div>
-            </div>
+              </details>
           </div>
         </div>
       </section>
@@ -353,8 +407,80 @@
           <span class="section-num mono">02</span>
           <span class="section-title">Experience</span>
         </div>
+        <div class="journey">
+          <div class="journey-track">
+            <div class="jnode">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-ideabytes">
+                <div class="jcard"><b>Software Engineering Intern</b><span>Ideabytes</span><small>2022-23</small></div>
+                <div class="jlogo"><img src="./assets/logos/ideabytes.png" alt="Ideabytes" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Ideabytes</span><span class="jyear">2022</span></div>
+            </div>
+            <div class="jnode">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-clincove">
+                <div class="jcard"><b>Junior Software Developer</b><span>Clincove</span><small>2023-24</small></div>
+                <div class="jlogo"><img src="./assets/logos/clincove.png" alt="Clincove" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Clincove</span><span class="jyear">2023</span></div>
+            </div>
+            <div class="jnode">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-trendmicro">
+                <div class="jcard"><b>Software Developer Intern</b><span>Trend Micro</span><small>2023</small></div>
+                <div class="jlogo"><img src="./assets/logos/trendmicro.png" alt="Trend Micro" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Trend Micro</span><span class="jyear">2023</span></div>
+            </div>
+            <div class="jnode">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-dayforce">
+                <div class="jcard"><b>Software Developer Intern</b><span>Dayforce</span><small>2024</small></div>
+                <div class="jlogo"><img src="./assets/logos/dayforce.png" alt="Dayforce" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Dayforce</span><span class="jyear">2024</span></div>
+            </div>
+            <div class="jnode">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-autodesk-intern">
+                <div class="jcard"><b>Software Engineer Intern</b><span>Autodesk</span><small>2025</small></div>
+                <div class="jlogo"><img src="./assets/logos/autodesk.png" alt="Autodesk" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Autodesk</span><span class="jyear">2025</span></div>
+            </div>
+            <div class="jnode">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-kinaxis">
+                <div class="jcard"><b>Software Developer Intern</b><span>Kinaxis</span><small>2025</small></div>
+                <div class="jlogo"><img src="./assets/logos/kinaxis.png" alt="Kinaxis" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Kinaxis</span><span class="jyear">2025</span></div>
+            </div>
+            <div class="jnode current">
+              <div class="jlogos">
+                <a class="jlogo-wrap" href="#exp-autodesk">
+                <div class="jcard"><b>Software Engineer</b><span>Autodesk</span><small>2026 - Present</small></div>
+                <div class="jlogo"><img src="./assets/logos/autodesk.png" alt="Autodesk" /></div>
+              </a>
+                <a class="jlogo-wrap" href="#exp-4ummah">
+                <div class="jcard"><b>CTO</b><span>4ummah</span><small>2026 - Present</small></div>
+                <div class="jlogo"><img src="./assets/logos/4ummah.jpg" alt="4ummah" /></div>
+              </a>
+              </div>
+              <div class="jmeta"><span class="jname">Autodesk &amp; 4ummah</span><span class="jyear">2026</span></div>
+            </div>
+          </div>
+        </div>
+
         <div class="timeline">
-          <div class="role current">
+          <div id="exp-autodesk" class="role current">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/autodesk.png" alt="Autodesk" /></div>
               <div class="role-main">
@@ -368,7 +494,7 @@
               <li>Extended an internal MCP orchestration server that gives coding agents one gateway to Jira, Confluence, Slack, and CI, with an agentic workflow that can complete a ticket end to end.</li>
             </ul>
           </div>
-          <div class="role current">
+          <div id="exp-4ummah" class="role current">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/4ummah.jpg" alt="4ummah" /></div>
               <div class="role-main">
@@ -378,7 +504,7 @@
             </div>
             <ul><li>Lead engineer and architect, deploying the platform from the ground up for hundreds of users and leading a team of developers.</li></ul>
           </div>
-          <div class="role">
+          <div id="exp-kinaxis" class="role">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/kinaxis.png" alt="Kinaxis" /></div>
               <div class="role-main">
@@ -392,7 +518,7 @@
               <li>Resolved network throttling failures using synchronous state access, reducing timeouts to <b>under 10ms</b>.</li>
             </ul>
           </div>
-          <div class="role">
+          <div id="exp-autodesk-intern" class="role">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/autodesk.png" alt="Autodesk" /></div>
               <div class="role-main">
@@ -406,7 +532,7 @@
               <li>Diagnosed and resolved critical build environment and dependency failures blocking team productivity.</li>
             </ul>
           </div>
-          <div class="role">
+          <div id="exp-dayforce" class="role">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/dayforce.png" alt="Dayforce" /></div>
               <div class="role-main">
@@ -419,7 +545,7 @@
               <li>Built automation test suites that cut manual testing from several minutes to <b>10 seconds</b>.</li>
             </ul>
           </div>
-          <div class="role">
+          <div id="exp-clincove" class="role">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/clincove.png" alt="Clincove" /></div>
               <div class="role-main">
@@ -434,7 +560,7 @@
               <li>Integrated JWT-secured end-to-end RESTful APIs with test-driven development in Jest, reaching full test coverage.</li>
             </ul>
           </div>
-          <div class="role">
+          <div id="exp-trendmicro" class="role">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/trendmicro.png" alt="Trend Micro" /></div>
               <div class="role-main">
@@ -447,7 +573,7 @@
               <li>Built optimized Splunk dashboards and visualizations to monitor cloud connection metrics, handling <b>10,000+ synchronizations</b> and cutting processing time from minutes to <b>11 seconds</b>.</li>
             </ul>
           </div>
-          <div class="role">
+          <div id="exp-ideabytes" class="role">
             <div class="role-head">
               <div class="role-logo"><img src="./assets/logos/ideabytes.png" alt="Ideabytes" /></div>
               <div class="role-main">
@@ -466,7 +592,7 @@
 
       <section id="projects">
         <div class="section-head">
-          <span class="section-num mono">03</span>
+          <span class="section-num mono">04</span>
           <span class="section-title">Projects</span>
         </div>
         <div class="proj-grid">
@@ -518,7 +644,7 @@
 
       <section id="contact">
         <div class="section-head">
-          <span class="section-num mono">04</span>
+          <span class="section-num mono">05</span>
           <span class="section-title">Contact</span>
         </div>
         <div class="contact-box">
@@ -539,5 +665,43 @@
         </div>
       </footer>
     </div>
+    <script>
+      (function () {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var DUR = reduce ? 0 : 260;
+        document.querySelectorAll('.skill-group').forEach(function (group) {
+          var summary = group.querySelector('summary');
+          var body = group.querySelector('.tags');
+          var busy = false;
+          summary.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (busy) return;
+            busy = true;
+            if (group.open) {
+              var h = body.offsetHeight;
+              var anim = body.animate(
+                [
+                  { height: h + 'px', paddingTop: '16px', paddingBottom: '16px', opacity: 1 },
+                  { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 }
+                ],
+                { duration: DUR, easing: 'ease' }
+              );
+              anim.onfinish = function () { group.open = false; busy = false; };
+            } else {
+              group.open = true;
+              var target = body.offsetHeight;
+              var anim2 = body.animate(
+                [
+                  { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 },
+                  { height: target + 'px', paddingTop: '16px', paddingBottom: '16px', opacity: 1 }
+                ],
+                { duration: DUR, easing: 'ease' }
+              );
+              anim2.onfinish = function () { busy = false; };
+            }
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
